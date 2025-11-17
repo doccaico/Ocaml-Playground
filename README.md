@@ -4,8 +4,8 @@
 
 ```ocaml
 let () =
-assert (1 + 2 = 3);
-assert (1 + 20 <> 3);
-assert (1. +. 2. = 3.);
-assert (1. +. 20. <> 3.)
+  assert (1 + 2 = 3);
+  assert (1 + 20 <> 3);
+  assert (1. +. 2. = 3.);
+  assert (1. +. 20. <> 3.)
 ```
