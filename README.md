@@ -18,8 +18,10 @@ let cat a b = a ^ " " ^ b
 let () = assert (cat "ha" "ha" = "ha ha")
 ```
 
-- 部分適用 (Partial application)
+- 部分適用/Partial application
 
 ```ocaml
-
+let cat a b = a ^ " " ^ b
+let cat_hi = cat "hi"
+let () = assert (cat_hi "friend" = "hi friend")
 ```
