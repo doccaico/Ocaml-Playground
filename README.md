@@ -108,13 +108,11 @@ let g x = match x with
     | "bar" -> 2
     | "baz" -> 3
     | "qux" -> 4
-    | _ -> 0;;
+    | _ -> 0
 
 let () =
   assert (g "bar" = 2);
-  assert (g "notfound" = 0);
-
-(* ---- *)
+  assert (g "notfound" = 0)
 
 let snd p =
   match p with
@@ -124,7 +122,7 @@ let () =
   assert (snd (10, 20) = 20)
 ```
 
-- 再帰関数 (`rec`)
+- 再帰関数/Recursive Function (`rec`)
 
 ```ocaml
 let rec sum u =
@@ -166,5 +164,26 @@ let () =
   assert (List.length [1; 2; 3; 4] = 4);
   assert (List.length ["a"; "b"; "c"] = 3);
   assert (List.length [] = 0)
+```
+
+- Variant型/Variant Types
+
+```ocaml
+(* Enumerated data type *)
+
+type color = Red | Green | Blue
+
+let () =
+  let c = Red in
+    assert (c = Red)
+
+(* Union type *)
+
+type http_response =
+  | Data of string
+  | Error_code of int
+
+let _ = Data "<!DOCTYPE html>"
+let _ = Error_code 404
 ```
 
