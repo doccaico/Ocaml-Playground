@@ -150,3 +150,21 @@ let () =
   assert (map square [1; 2; 3; 4] = [1; 4; 9; 16]);
   assert (List.map square [1; 2; 3; 4] = [1; 4; 9; 16])
 ```
+
+- 多相型関数/Polymorphic Function (e.g. `List.length`)
+
+```ocaml
+let rec length u =
+  match u with
+  | [] -> 0
+  | _ :: v -> 1 + length v
+
+let () =
+  assert (length [1; 2; 3; 4] = 4);
+  assert (length ["a"; "b"; "c"] = 3);
+  assert (length [] = 0);
+  assert (List.length [1; 2; 3; 4] = 4);
+  assert (List.length ["a"; "b"; "c"] = 3);
+  assert (List.length [] = 0)
+```
+
