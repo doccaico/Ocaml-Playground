@@ -353,6 +353,39 @@ Here is how this makes sense:
 *)
 ```
 
+- For, Whileループ/ (`for`, `while`)
+
+```ocaml
+let add a b = a + b
+
+let () =
+  (* for loop *)
+  for i = 0 to 1 do
+    print_endline @@ string_of_int @@ add 1 2;
+  done;
+  (* 3 *)
+  (* 3 *)
+
+  (* 上記のfor loopは下記のように書くのと同じ *)
+  let _ = 1 in
+    print_endline @@ string_of_int @@ add 1 2;
+  let _ = 1 in
+    print_endline @@ string_of_int @@ add 1 2;
+  (* 3 *)
+  (* 3 *)
+
+  (* while loop *)
+  let quit_loop = ref false in
+  let i = ref 0 in
+    while not !quit_loop do
+      print_endline @@ string_of_int @@ add 10 20;
+      i := succ !i;
+      if !i > 1 then quit_loop := true
+    done
+  (* 30 *)
+  (* 30 *)
+```
+
 - [Currying and Uncurrying][cauc.1]
 
 
