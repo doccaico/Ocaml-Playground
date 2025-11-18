@@ -93,7 +93,7 @@ let g x =
   else if x = "bar" then 2
   else if x = "baz" then 3
   else if x = "qux" then 4
-  else 0;;
+  else 0
 
 let () =
   assert (g "bar" = 2);
@@ -166,7 +166,7 @@ let () =
   assert (List.length [] = 0)
 ```
 
-- Variant型/Variant Types
+- ヴァリアント型/Variant Types
 
 ```ocaml
 (* Enumerated data type *)
@@ -185,5 +185,38 @@ type http_response =
 
 let _ = Data "<!DOCTYPE html>"
 let _ = Error_code 404
+
+(* 上記二つの合わせ技 *)
+
+type page_range =
+  | All
+  | Current
+  | Range of int * int (* Tuple *)
+```
+
+- レコード/Record
+
+```ocaml
+type person = {
+  first_name : string;
+  surname : string;
+  age : int
+}
+
+let gerard = {
+   first_name = "Gérard";
+   surname = "Huet";
+   age = 76
+}
+
+let () =
+  assert (gerard.surname = "Huet")
+
+let is_teenager person =
+  match person with
+  | { age = x; _ } -> 13 <= x && x <= 19
+
+let () =
+  assert (is_teenager gerard = false)
 ```
 
