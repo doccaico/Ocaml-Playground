@@ -352,3 +352,8 @@ Here is how this makes sense:
 5. Compute k of 7 again, the result is the same: 42
 *)
 ```
+
+- [Currying and Uncurrying][cau.1]
+
+
+[cau.1]: <https://ocaml.org/docs/values-and-functions#currying-and-uncurrying>
