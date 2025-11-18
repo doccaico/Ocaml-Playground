@@ -1,4 +1,4 @@
-let usage_msg = "append [-verbose] <file1> [<file2>] ... -o <output>"
+let usage_msg = "main [-verbose] <file1> [<file2>] ... -o <output>"
 
 let verbose = ref false
 
