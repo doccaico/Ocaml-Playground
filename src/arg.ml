@@ -33,7 +33,7 @@ let () =
     print_endline @@ "your bin's name: " ^ !output_file;
 
   for i = 0 to files_len - 1 do
-    print_endline ( List.nth !input_files i);
+    print_endline @@ List.nth !input_files i
   done
 
 (*
