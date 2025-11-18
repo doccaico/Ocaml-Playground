@@ -237,3 +237,22 @@ let () =
     | Failure _ -> 0 in
   assert (n = 0)
 ```
+
+- Result型 (`Ok`, `Error`)
+
+```ocaml
+let id_42_res n =
+  if n <> 42 then
+    Error "Sorry"
+  else
+    Ok n
+
+let () =
+  assert (id_42_res 42 = Ok 42);
+  assert (id_42_res 0 = Error "Sorry");
+  let n =
+    match id_42_res 0 with
+    | Ok n -> n
+    | Error _ -> 0 in
+  assert (n = 0)
+```
