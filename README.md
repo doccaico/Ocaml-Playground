@@ -85,6 +85,21 @@ let () =
   assert (concat3 hi space cat = "hi cat")
 ```
 
+- 条件分岐 (`If ... Else`)
+
+```ocaml
+let g x =
+  if x = "foo" then 1
+  else if x = "bar" then 2
+  else if x = "baz" then 3
+  else if x = "qux" then 4
+  else 0;;
+
+let () =
+  assert (g "bar" = 2);
+  assert (g "notfound" = 0);
+```
+
 - パターンマッチ/Pattern Matching (`match ... with`)
 
 ```ocaml
