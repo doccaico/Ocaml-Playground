@@ -53,7 +53,7 @@ let cat a b = a ^ " " ^ b
 let () = assert (cat "ha" "ha" = "ha ha")
 ```
 
-- 部分適用/`Partial application`
+- 部分適用/Partial Application
 
 ```ocaml
 let cat a b = a ^ " " ^ b
@@ -61,15 +61,17 @@ let cat_hi = cat "hi"
 let () = assert (cat_hi "friend" = "hi friend")
 ```
 
-- 無名関数/`Anonymous function`
+- 無名関数/Anonymous Function (`fun`)
 
 ```ocaml
 let add a b = a + b
 let add_anon = fun a b -> a + b
+let add_anon' = fun a -> fun b -> a + b
 
 let () =
   assert (add 1 2 = 3);
   assert (add_anon 1 2 = 3);
+  assert (add_anon' 1 2 = 3);
   assert ((fun a b -> a + b) 1 2 = 3) (* 即座に関数を呼び出せる *)
 ```
 
@@ -91,7 +93,7 @@ let add a b = a + b in add 1 2
 let () = add 1 2 (* Error: Unbound value add *)
 ```
 
-- 条件分岐 (`iF ... else`)
+- 条件分岐 (`if ... else`)
 
 ```ocaml
 let g x =
