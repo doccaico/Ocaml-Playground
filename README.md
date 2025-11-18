@@ -218,6 +218,33 @@ let is_teenager person =
 
 let () =
   assert (is_teenager gerard = false)
+
+(* deconstruction with pattern-matching *)
+
+type person = {
+  name : string;
+  street : string;
+  city : string;
+  zip : int;
+  contact: string * int;
+}
+
+let jane = {
+  name = "Jane Doe";
+  street = "123 Elm St";
+  city = "Springfield";
+  zip = 12345;
+  contact = ("jane@example.com", 1234567890);
+}
+
+let { name; street; city; contact = (email, phone) } = jane
+
+let () =
+  assert (name = "Jane Doe");
+  assert (street = "123 Elm St");
+  assert (city = "Springfield");
+  assert (email = "jane@example.com");
+  assert (phone = 1234567890)
 ```
 
 - 例外/Exception (`try ... with`)
@@ -270,4 +297,23 @@ let () =
   assert (!text = "Hi, cat!");
 
   assert (!text ^ (text := "world!"; !text) = "world!world!")
+```
+
+- Application Operator (`@@`)
+
+```ocaml
+let () =
+  assert (sqrt 9. = 3.);
+  assert (sqrt @@ 9. = 3.)
+  assert (int_of_float (sqrt (float_of_int (int_of_string "81"))) = 9);
+  assert (int_of_float @@ sqrt @@ float_of_int @@ int_of_string "81" = 9)
+```
+
+- Pipe Operator (`|>`)
+
+```ocaml
+let () =
+  assert (sqrt 9. = 3.);
+  assert (9. |> sqrt = 3.);
+  assert ("81" |> int_of_string |> float_of_int |> sqrt |> int_of_float = 9)
 ```
