@@ -353,7 +353,7 @@ Here is how this makes sense:
 *)
 ```
 
-- [Currying and Uncurrying][cau.1]
+- [Currying and Uncurrying][cauc.1]
 
 
-[cau.1]: <https://ocaml.org/docs/values-and-functions#currying-and-uncurrying>
+[cauc.1]: <https://ocaml.org/docs/values-and-functions#currying-and-uncurrying>
