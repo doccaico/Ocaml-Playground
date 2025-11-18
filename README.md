@@ -85,7 +85,7 @@ let () =
   assert (concat3 hi space cat = "hi cat")
 ```
 
-- 条件分岐 (`If ... Else`)
+- 条件分岐 (`iF ... else`)
 
 ```ocaml
 let g x =
@@ -220,3 +220,20 @@ let () =
   assert (is_teenager gerard = false)
 ```
 
+- 例外/Exception (`try ... with`)
+
+```ocaml
+let id_42 n =
+  if n <> 42 then
+    raise (Failure "Sorry")
+  else
+    n
+
+let () =
+  print_int (id_42 42); (* 42 *)
+  print_int (id_42 0); (* Exception: Failure "Sorry". *)
+  let n =
+    try id_42 0 with
+    | Failure _ -> 0 in
+  assert (n = 0)
+```
