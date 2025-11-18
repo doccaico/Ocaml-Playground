@@ -1,5 +1,26 @@
 # Playing with Ocaml
 
+- プリミティブ型と値
+
+```ocaml
+let () =
+  assert (65 / 60 = 1);
+  assert (65 mod 60 = 5);
+  assert (3.14 *. 2. = 6.28);
+  assert (3.14 *. float_of_int 2 = 6.28);
+  assert (true && true = true);
+  assert (false || false = false);
+  assert (int_of_char 'a' = 97 && int_of_char 'b' = 98);
+  assert (int_of_char 'b' - int_of_char 'a' = 1);
+  assert (char_of_int 97 = 'a' && char_of_int 98 = 'b');
+  assert (string_of_int 42 = "42");
+  assert (string_of_float 42. = "42." && string_of_float 42.0 = "42.");
+  assert (string_of_bool true = "true" && string_of_bool false = "false");
+  assert (int_of_string "42" = 42);
+  assert (float_of_string "42." = 42.);
+  assert (bool_of_string "true" = true)
+```
+
 - 簡単な演算と比較 (`=`, `<>`, int, float)
 
 ```ocaml
