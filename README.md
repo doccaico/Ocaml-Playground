@@ -256,3 +256,18 @@ let () =
     | Error _ -> 0 in
   assert (n = 0)
 ```
+
+- 可変変数/References (`ref`, `:=`, `mutable`, `receives`)
+
+```ocaml
+let text = ref "hello "
+
+let () =
+  let hello_world = !text ^ "world!" in
+    assert (hello_world = "hello world!");
+
+  text := "Hi, cat!";
+  assert (!text = "Hi, cat!")
+
+  assert (!text ^ (text := "world!"; !text) = "world!world!");
+```
