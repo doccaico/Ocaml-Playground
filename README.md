@@ -267,7 +267,7 @@ let () =
     assert (hello_world = "hello world!");
 
   text := "Hi, cat!";
-  assert (!text = "Hi, cat!")
+  assert (!text = "Hi, cat!");
 
-  assert (!text ^ (text := "world!"; !text) = "world!world!");
+  assert (!text ^ (text := "world!"; !text) = "world!world!")
 ```
