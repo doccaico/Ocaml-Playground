@@ -324,7 +324,29 @@ let () =
   assert ("81" |> int_of_string |> float_of_int |> sqrt |> int_of_float = 9)
 ```
 
-- [Closures][closures.1]
+- クロージャー/Closure
 
+```ocaml
+let j = 2 * 3
+(* val j : int = 6 *)
 
-[closures.1]: <https://ocaml.org/docs/values-and-functions#closures>
+let k x = x * j
+(* val k : int -> int = <fun> *)
+
+let () = assert (k 7 == 42)
+
+let j = 7
+(* val j : int = 7 *)
+
+let () = assert (k 7 == 42) (* What is the result? *)
+
+(*
+Here is how this makes sense:
+
+1. Constant j is defined, and its value is 6
+2. Function k is defined. It has a single parameter x and returns the value of x * j
+3. Compute k of 7, and its value is 42
+4. Create a new definition j, shadowing the first one
+5. Compute k of 7 again, the result is the same: 42
+*)
+```
