@@ -83,6 +83,12 @@ let () =
   let space = " " in
   let cat = "cat" in
   assert (concat3 hi space cat = "hi cat")
+
+(* A function may be defined locally *)
+
+let add a b = a + b in add 1 2
+
+let () = add 1 2 (* Error: Unbound value add *)
 ```
 
 - 条件分岐 (`iF ... else`)
@@ -317,3 +323,8 @@ let () =
   assert (9. |> sqrt = 3.);
   assert ("81" |> int_of_string |> float_of_int |> sqrt |> int_of_float = 9)
 ```
+
+- [Closures][closures.1]
+
+
+[closures.1]: <https://ocaml.org/docs/values-and-functions#closures>
