@@ -37,3 +37,15 @@ let () =
   assert (add_anon 1 2 = 3);
   assert ((fun a b -> a + b) 1 2 = 3) (* 即座に関数を呼び出せる *)
 ```
+
+- 局所変数 `let ... in`
+
+```ocaml
+let concat3 a b c = a ^ b ^ c
+
+let () =
+  let hi = "hi" in
+  let space = " " in
+  let cat = "cat" in
+  assert (concat3 hi space cat = "hi cat")
+```
