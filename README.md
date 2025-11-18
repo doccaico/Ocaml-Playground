@@ -31,6 +31,20 @@ let () =
   assert (1. +. 20. <> 3.)
 ```
 
+- List, Tuple, Pair
+
+```ocaml
+let list = [0; 1; 2; 3; 4]
+let tuple = (0, '0', "zero")
+let pair = (0, "zero")
+
+let () =
+  assert (List.nth list 4 = 4);
+  let (_, second_val, _) = tuple in
+    assert (second_val = '0');
+  assert (snd pair = "zero")
+```
+
 - 文字列連結 (`^`)
 
 ```ocaml
@@ -69,4 +83,27 @@ let () =
   let space = " " in
   let cat = "cat" in
   assert (concat3 hi space cat = "hi cat")
+```
+
+- パターンマッチ/Pattern Matching (`match ... with`)
+
+```ocaml
+let snd p =
+  match p with
+  | (_, y) -> y
+
+let () =
+  assert (snd (10, 20) = 20)
+```
+
+- 再帰関数 (`rec`)
+
+```ocaml
+let rec sum u =
+  match u with
+  | [] -> 0
+  | x :: v -> x + sum v
+
+let () =
+  assert (sum [1; 2; 3] = 6);
 ```
