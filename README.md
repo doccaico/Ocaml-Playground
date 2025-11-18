@@ -135,3 +135,18 @@ let rec sum u =
 let () =
   assert (sum [1; 2; 3] = 6);
 ```
+
+- 高階関数/Higher-Order Function (e.g. `List.map`)
+
+```ocaml
+let square x = x * x
+
+let rec map f u =
+  match u with
+  | [] -> []
+  | x :: u -> f x :: map f u
+
+let () =
+  assert (map square [1; 2; 3; 4] = [1; 4; 9; 16]);
+  assert (List.map square [1; 2; 3; 4] = [1; 4; 9; 16])
+```
