@@ -88,6 +88,19 @@ let () =
 - パターンマッチ/Pattern Matching (`match ... with`)
 
 ```ocaml
+let g x = match x with
+    | "foo" -> 1
+    | "bar" -> 2
+    | "baz" -> 3
+    | "qux" -> 4
+    | _ -> 0;;
+
+let () =
+  assert (g "bar" = 2);
+  assert (g "notfound" = 0);
+
+(* ---- *)
+
 let snd p =
   match p with
   | (_, y) -> y
